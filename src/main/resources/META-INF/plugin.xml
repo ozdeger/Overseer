@@ -1,0 +1,49 @@
+<idea-plugin>
+    <id>games.ace.overseer</id>
+    <name>Overseer</name>
+    <vendor email="gokay@ace.games" url="https://ace.games">ACE Games</vendor>
+
+    <description><![CDATA[
+        <p><b>Overseer</b> runs a Claude-powered code review on every commit you make.
+        It watches your repository's git reflogs (independent of the IDE's Git client),
+        reviews each new commit with the local <code>claude</code> CLI, and records an
+        advisory verdict you can browse per commit in the Overseer tool window.</p>
+        <p>Reviews never block anything — they are a record the author reads later.</p>
+    ]]></description>
+
+    <!-- Platform only. Overseer does NOT depend on Rider's Git client. -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Starts the .git filesystem watcher when a project opens -->
+        <postStartupActivity implementation="games.ace.overseer.watch.OverseerStartupActivity"/>
+
+        <!-- Notification group used to alert on failed (ERROR) reviews -->
+        <notificationGroup id="Overseer" displayType="BALLOON"/>
+
+        <!-- Persisted settings (prompt override, claude path, auto-review toggle) -->
+        <applicationService serviceImplementation="games.ace.overseer.settings.OverseerSettings"/>
+
+        <!-- Per-project persisted store of commit reviews -->
+        <projectService serviceImplementation="games.ace.overseer.review.ReviewStore"/>
+
+        <!-- Per-project bounded parallel review pool -->
+        <projectService serviceImplementation="games.ace.overseer.review.ReviewQueue"/>
+
+        <!-- Per-project .git push watcher -->
+        <projectService serviceImplementation="games.ace.overseer.watch.GitPushWatcherService"/>
+
+        <!-- Tool window for browsing reviews per commit -->
+        <toolWindow id="Overseer"
+                    anchor="right"
+                    icon="/icons/overseer.svg"
+                    factoryClass="games.ace.overseer.ui.OverseerToolWindowFactory"/>
+
+        <!-- Settings UI under Settings | Tools | Overseer -->
+        <applicationConfigurable
+                parentId="tools"
+                id="games.ace.overseer.settings.OverseerConfigurable"
+                instance="games.ace.overseer.settings.OverseerConfigurable"
+                displayName="Overseer"/>
+    </extensions>
+</idea-plugin>

@@ -1,0 +1,12 @@
+# Build output
+.gradle/
+build/
+out/
+
+# IDE
+.idea/
+*.iml
+
+# IntelliJ Platform Gradle Plugin caches
+.intellijPlatform/
+.kotlin/
