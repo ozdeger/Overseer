@@ -48,7 +48,9 @@ DOWNLOAD_BASE="${1:-${OVERSEER_DOWNLOAD_BASE:-https://CHANGE-ME/path/to}}"
 mkdir -p dist
 cp -f "$ZIP" "dist/$ZIP_NAME"
 
-cat > dist/updatePlugins.xml <<XML
+# updatePlugins.xml is written to the repo ROOT so it can be committed and served from a
+# stable raw URL. The zip stays in dist/ (gitignored) and is uploaded to your release host.
+cat > updatePlugins.xml <<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <plugins>
   <plugin id="$PLUGIN_ID"
@@ -64,14 +66,14 @@ XML
 
 echo
 echo ">> Done."
-echo "   Plugin zip:      dist/$ZIP_NAME"
-echo "   Repo descriptor: dist/updatePlugins.xml"
+echo "   Plugin zip:      dist/$ZIP_NAME   (upload to your release host)"
+echo "   Repo descriptor: updatePlugins.xml   (repo root - commit & push this)"
 echo
 echo ">> Next steps:"
 echo "   1) Upload dist/$ZIP_NAME to your host (e.g. a GitHub Release asset)."
-echo "   2) Ensure <plugin url=> in dist/updatePlugins.xml points at that uploaded zip."
+echo "   2) Ensure <plugin url=> in updatePlugins.xml points at that uploaded zip."
 echo "      current: $DOWNLOAD_BASE/$ZIP_NAME"
-echo "   3) Host updatePlugins.xml at a stable RAW URL and share it. Recipients add it via"
+echo "   3) Commit & push updatePlugins.xml. Recipients add its RAW URL via"
 echo "      Settings > Plugins > gear > Manage Plugin Repositories."
 if [ "$DOWNLOAD_BASE" = "https://CHANGE-ME/path/to" ]; then
   echo
