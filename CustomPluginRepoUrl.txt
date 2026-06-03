@@ -1,0 +1,1 @@
+https://github.com/ozdeger/Overseer/raw/develop/updatePlugins.xml
