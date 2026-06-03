@@ -4,6 +4,7 @@ import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.process.CapturingProcessHandler
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.progress.ProgressIndicator
+import plugins.ozdeger.observer.settings.OverseerSettings
 import java.nio.charset.StandardCharsets
 
 /** A commit's hash, subject, committer time (epoch millis), and committer email. */
@@ -12,11 +13,13 @@ data class CommitMeta(val hash: String, val subject: String, val timeMillis: Lon
 /** Thin wrapper around the `git` CLI. No dependency on the IDE's Git client. */
 object GitCli {
 
-    private const val SEP = '\u001F'
+    // Unit-separator (0x1F) that git emits between fields when we use %x1f in --format.
+    private val SEP: Char = 0x1F.toChar()
 
     fun run(repoRoot: String, indicator: ProgressIndicator, vararg args: String): String =
         try {
-            val cmd = GeneralCommandLine(listOf("git", *args))
+            val gitExe = ExecutableResolver.resolve(OverseerSettings.getInstance().gitPath)
+            val cmd = GeneralCommandLine(listOf(gitExe, *args))
                 .withWorkDirectory(repoRoot)
                 .withCharset(StandardCharsets.UTF_8)
             CapturingProcessHandler(cmd).runProcessWithProgressIndicator(indicator).stdout
@@ -40,8 +43,7 @@ object GitCli {
 
     /**
      * Commits introduced by a range, oldest first, with committer time and committer email.
-     * Merge commits are excluded. Committer filtering is done by the caller so the limit can be
-     * applied after filtering.
+     * Merge commits excluded. Caller filters by committer so the limit applies after filtering.
      */
     fun commitsForPush(
         repoRoot: String,

@@ -14,6 +14,7 @@ class OverseerSettings : PersistentStateComponent<OverseerSettings.State> {
     data class State(
         var promptOverride: String? = null,
         var claudePath: String = "claude",
+        var gitPath: String = "git",
         var model: String = "claude-opus-4-8",
         var autoReviewOnCommit: Boolean = true,
         var reviewOnlyMyCommits: Boolean = true,
@@ -32,6 +33,10 @@ class OverseerSettings : PersistentStateComponent<OverseerSettings.State> {
     var claudePath: String
         get() = state.claudePath
         set(v) { state.claudePath = v }
+
+    var gitPath: String
+        get() = state.gitPath
+        set(v) { state.gitPath = v }
 
     var model: String
         get() = state.model

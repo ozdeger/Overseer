@@ -15,6 +15,9 @@ import javax.swing.JTextArea
 class OverseerSettingsComponent {
 
     private val claudePathField = JBTextField()
+    private val gitPathField = JBTextField().apply {
+        emptyText.text = "git (on PATH); or a full path, e.g. /usr/bin/git"
+    }
     private val modelField = JBTextField().apply {
         emptyText.text = "default (blank); e.g. opus, sonnet, haiku, or a full model id"
     }
@@ -37,6 +40,7 @@ class OverseerSettingsComponent {
 
         panel = FormBuilder.createFormBuilder()
             .addLabeledComponent(JBLabel("Path to claude CLI:"), claudePathField, 1, false)
+            .addLabeledComponent(JBLabel("Path to git:"), gitPathField, 1, false)
             .addLabeledComponent(JBLabel("Claude model:"), modelField, 1, false)
             .addComponent(autoReviewCheck, 1)
             .addComponent(onlyMineCheck, 1)
@@ -54,6 +58,10 @@ class OverseerSettingsComponent {
     var claudePath: String
         get() = claudePathField.text.trim()
         set(v) { claudePathField.text = v }
+
+    var gitPath: String
+        get() = gitPathField.text.trim()
+        set(v) { gitPathField.text = v }
 
     var model: String
         get() = modelField.text.trim()

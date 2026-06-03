@@ -36,7 +36,7 @@ object ClaudeReviewService {
             }
         }
 
-        val args = mutableListOf(settings.claudePath)
+        val args = mutableListOf(ExecutableResolver.resolve(settings.claudePath))
         if (settings.model.isNotBlank()) {
             args += "--model"
             args += settings.model.trim()

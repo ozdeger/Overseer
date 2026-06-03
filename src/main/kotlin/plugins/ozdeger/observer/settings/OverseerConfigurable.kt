@@ -21,6 +21,7 @@ class OverseerConfigurable : Configurable {
         val c = ui ?: return false
         val s = OverseerSettings.getInstance()
         return c.claudePath != s.claudePath ||
+            c.gitPath != s.gitPath ||
             c.model != s.model ||
             c.autoReviewOnCommit != s.autoReviewOnCommit ||
             c.reviewOnlyMyCommits != s.reviewOnlyMyCommits ||
@@ -32,6 +33,7 @@ class OverseerConfigurable : Configurable {
         val c = ui ?: return
         val s = OverseerSettings.getInstance()
         s.claudePath = c.claudePath
+        s.gitPath = c.gitPath
         s.model = c.model
         s.autoReviewOnCommit = c.autoReviewOnCommit
         s.reviewOnlyMyCommits = c.reviewOnlyMyCommits
@@ -43,6 +45,7 @@ class OverseerConfigurable : Configurable {
         val c = ui ?: return
         val s = OverseerSettings.getInstance()
         c.claudePath = s.claudePath
+        c.gitPath = s.gitPath
         c.model = s.model
         c.autoReviewOnCommit = s.autoReviewOnCommit
         c.reviewOnlyMyCommits = s.reviewOnlyMyCommits
