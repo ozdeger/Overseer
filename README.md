@@ -56,7 +56,7 @@ re-evaluate.
 1. In Rider: **Settings → Plugins → ⚙ → Manage Plugin Repositories…**
 2. Add this URL:
    ```
-   https://raw.githubusercontent.com/ozdeger/Overseer/master/updatePlugins.xml
+   https://raw.githubusercontent.com/ozdeger/Overseer/develop/updatePlugins.xml
    ```
 3. Go to the **Marketplace** tab, search **Overseer**, and click **Install**.
 
