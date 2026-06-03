@@ -1,4 +1,4 @@
-package games.ace.overseer.review
+package plugins.ozdeger.observer.review
 
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.process.CapturingProcessHandler

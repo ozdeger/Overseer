@@ -1,4 +1,4 @@
-package games.ace.overseer.settings
+package plugins.ozdeger.observer.settings
 
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.JBLabel

@@ -1,4 +1,4 @@
-package games.ace.overseer.ui
+package plugins.ozdeger.observer.ui
 
 import com.intellij.ui.JBColor
 import com.intellij.util.ui.UIUtil

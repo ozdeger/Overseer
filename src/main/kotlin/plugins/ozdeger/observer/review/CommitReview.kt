@@ -1,4 +1,4 @@
-package games.ace.overseer.review
+package plugins.ozdeger.observer.review
 
 /**
  * Severity of a single commit's review (advisory only, never blocks).

@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.16.0"
 }
 
-group = "games.ace"
+group = "plugins.ozdeger"
 version = "0.1.0"
 
 repositories {

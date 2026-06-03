@@ -1,8 +1,8 @@
-package games.ace.overseer.review
+package plugins.ozdeger.observer.review
 
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
-import games.ace.overseer.settings.OverseerSettings
+import plugins.ozdeger.observer.settings.OverseerSettings
 import java.util.concurrent.atomic.AtomicInteger
 
 /**

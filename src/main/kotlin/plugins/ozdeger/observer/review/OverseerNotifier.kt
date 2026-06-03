@@ -1,4 +1,4 @@
-package games.ace.overseer.review
+package plugins.ozdeger.observer.review
 
 import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationGroupManager

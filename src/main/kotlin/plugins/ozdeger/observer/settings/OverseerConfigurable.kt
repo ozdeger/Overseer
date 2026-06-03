@@ -1,4 +1,4 @@
-package games.ace.overseer.settings
+package plugins.ozdeger.observer.settings
 
 import com.intellij.openapi.options.Configurable
 import javax.swing.JComponent

@@ -1,4 +1,4 @@
-package games.ace.overseer.watch
+package plugins.ozdeger.observer.watch
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.ProjectActivity

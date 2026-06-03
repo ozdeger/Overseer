@@ -1,4 +1,4 @@
-package games.ace.overseer.ui
+package plugins.ozdeger.observer.ui
 
 import com.intellij.icons.AllIcons
 import com.intellij.ide.BrowserUtil
@@ -19,11 +19,11 @@ import com.intellij.ui.jcef.JBCefBrowser
 import com.intellij.util.ui.HTMLEditorKitBuilder
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.UIUtil
-import games.ace.overseer.review.CommitReview
-import games.ace.overseer.review.OverseerReviewListener
-import games.ace.overseer.review.ReviewLauncher
-import games.ace.overseer.review.ReviewStore
-import games.ace.overseer.review.Verdict
+import plugins.ozdeger.observer.review.CommitReview
+import plugins.ozdeger.observer.review.OverseerReviewListener
+import plugins.ozdeger.observer.review.ReviewLauncher
+import plugins.ozdeger.observer.review.ReviewStore
+import plugins.ozdeger.observer.review.Verdict
 import java.awt.BorderLayout
 import java.awt.Color
 import java.awt.event.ActionEvent

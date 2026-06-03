@@ -1,10 +1,10 @@
-package games.ace.overseer.watch
+package plugins.ozdeger.observer.watch
 
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.project.Project
 import com.intellij.util.concurrency.AppExecutorUtil
-import games.ace.overseer.review.ReviewLauncher
-import games.ace.overseer.review.ReviewStore
+import plugins.ozdeger.observer.review.ReviewLauncher
+import plugins.ozdeger.observer.review.ReviewStore
 import java.nio.file.Files
 import java.nio.file.Path
 import java.util.concurrent.ScheduledFuture

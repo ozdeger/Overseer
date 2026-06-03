@@ -1,4 +1,4 @@
-package games.ace.overseer.watch
+package plugins.ozdeger.observer.watch
 
 /** One parsed reflog entry. */
 data class ReflogEntry(val oldSha: String, val newSha: String, val message: String) {

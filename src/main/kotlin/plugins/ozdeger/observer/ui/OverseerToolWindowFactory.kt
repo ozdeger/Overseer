@@ -1,4 +1,4 @@
-package games.ace.overseer.ui
+package plugins.ozdeger.observer.ui
 
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.actionSystem.AnAction
@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.ContentFactory
-import games.ace.overseer.settings.OverseerConfigurable
+import plugins.ozdeger.observer.settings.OverseerConfigurable
 
 /** Registers the "Overseer" tool window where users browse per-commit reviews. */
 class OverseerToolWindowFactory : ToolWindowFactory {

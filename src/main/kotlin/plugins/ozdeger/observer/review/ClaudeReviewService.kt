@@ -1,10 +1,10 @@
-package games.ace.overseer.review
+package plugins.ozdeger.observer.review
 
 import com.google.gson.JsonParser
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.process.CapturingProcessHandler
 import com.intellij.openapi.progress.ProgressIndicator
-import games.ace.overseer.settings.OverseerSettings
+import plugins.ozdeger.observer.settings.OverseerSettings
 import java.io.File
 import java.nio.charset.StandardCharsets
 

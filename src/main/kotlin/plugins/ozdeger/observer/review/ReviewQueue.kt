@@ -1,4 +1,4 @@
-package games.ace.overseer.review
+package plugins.ozdeger.observer.review
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.Service

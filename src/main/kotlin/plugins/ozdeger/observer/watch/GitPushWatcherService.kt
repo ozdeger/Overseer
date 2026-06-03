@@ -1,4 +1,4 @@
-package games.ace.overseer.watch
+package plugins.ozdeger.observer.watch
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.Service
