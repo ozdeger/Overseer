@@ -44,7 +44,11 @@ ZIP="$(ls -1 build/distributions/*.zip 2>/dev/null | head -1 || true)"
 ZIP_NAME="$(basename "$ZIP")"
 
 # --- assemble dist/ ---
-DOWNLOAD_BASE="${1:-${OVERSEER_DOWNLOAD_BASE:-https://CHANGE-ME/path/to}}"
+# Default download base follows the GitHub Releases convention, with the tag derived from the
+# version (e.g. .../releases/download/v0.2.0). Override with an arg or OVERSEER_DOWNLOAD_BASE.
+GITHUB_REPO="https://github.com/ozdeger/Overseer"
+DEFAULT_BASE="$GITHUB_REPO/releases/download/v$VERSION"
+DOWNLOAD_BASE="${1:-${OVERSEER_DOWNLOAD_BASE:-$DEFAULT_BASE}}"
 mkdir -p dist
 cp -f "$ZIP" "dist/$ZIP_NAME"
 
@@ -75,7 +79,6 @@ echo "   2) Ensure <plugin url=> in updatePlugins.xml points at that uploaded zi
 echo "      current: $DOWNLOAD_BASE/$ZIP_NAME"
 echo "   3) Commit & push updatePlugins.xml. Recipients add its RAW URL via"
 echo "      Settings > Plugins > gear > Manage Plugin Repositories."
-if [ "$DOWNLOAD_BASE" = "https://CHANGE-ME/path/to" ]; then
-  echo
-  echo "   NOTE: download URL not set. Re-run as: ./build-dist.sh <DOWNLOAD_BASE_URL>"
-fi
+echo
+echo "   Make sure GitHub release tag v$VERSION exists and has $ZIP_NAME attached"
+echo "   (or override the base: ./build-dist.sh <DOWNLOAD_BASE_URL>)."
