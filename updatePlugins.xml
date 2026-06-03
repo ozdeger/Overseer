@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugins>
   <plugin id="plugins.ozdeger.observer"
-          url="https://github.com/ozdeger/Overseer/releases/download/v0.1.0/overseer-0.2.0.zip"
+          url="https://github.com/ozdeger/Overseer/releases/download/v0.2.0/overseer-0.2.0.zip"
           version="0.2.0">
     <name>Overseer</name>
     <description>Claude-powered per-commit code review for Rider.</description>
